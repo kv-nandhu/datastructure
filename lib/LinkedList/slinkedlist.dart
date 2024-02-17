@@ -99,6 +99,8 @@ class singlyLinkedList {
     if (current?.data == before) {
       head = newnode;
       head?.next = current;
+      // newnode.next = current;
+      // head = newnode;
     } else {
       while (current != null && current.data != before) {
         prev = current;
@@ -120,14 +122,14 @@ class singlyLinkedList {
     while (temp != null && temp.data != after) {
       temp = temp.next;
     }
-    if (tail == null) {
+    if (temp == null) {
       return;
     }
     if (tail == temp) {
       tail!.next = newnode;
       tail = newnode;
     }
-    newnode.next = temp!.next;
+    newnode.next = temp.next;
     temp.next = newnode;
   }
 
@@ -197,10 +199,10 @@ void main() {
   // list.delete(50);
   // list.search(20);
   // list.reverse();
-  // list.insertbefore(30, 25);
+  list.insertbefore(10, 25);
   // list.insertafter(20, 40);
   // list.addmiddle(25);
   // list.deleteMiddle();
-  list.removeduplicates();
+  // list.removeduplicates();
   list.display();
 }
