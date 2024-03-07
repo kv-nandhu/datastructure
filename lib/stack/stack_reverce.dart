@@ -1,52 +1,54 @@
-class Node {
-  String data;
+void main(List<String> args) {
+  Stack stack=Stack();
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  stack.push(40);
+  stack.push(50);
+  // stack.display();
+  Stack stack1=Stack();
+  stack1.top=stack1.reverseStack(stack.top, stack1.top);
+  stack1.display();
+}
+class Node{
+  int data;
   Node? next;
-
   Node({required this.data});
 }
-
-class Stack {
+class Stack{
   Node? top;
-
-  void push(String data) {
-    Node? newNode = Node(data:data);
-    newNode.next = top;
-    top = newNode;
-  }
-
-  String pop() {
-    if (isEmpty()) {
-      print("stack is empty");
+  void push(int data){
+    var newNode=Node(data: data);
+    if(top==null){
+      top=newNode;
+      return;
+    }else{
+      newNode.next=top;
+      top=newNode;
     }
-    String data = top!.data;
-    top = top!.next;
-    return data;
   }
-
-  bool isEmpty() {
-    return top == null;
+  void pop(){
+    top=top!.next;
   }
-}
-
-String reverseStringWithStack(String input) {
-  Stack stack = Stack();
-  String reversedString = '';
-
-  for (int i = 0; i < input.length; i++) {
-    stack.push(input[i]);
+  display(){
+    var temp=top;
+    while (temp!=null) {
+      print(temp.data);
+      temp=temp.next;
+    }
   }
-
-  while (!stack.isEmpty()) {
-    reversedString += stack.pop();
+   Node? reverseStack(Node? top1,Node? top2){
+    var temp=top1;
+  while (temp!=null) {
+     var newNode=Node(data: temp.data);
+     if(top2==null){
+      top2=newNode;
+      }else{
+      newNode.next=top2;
+      top2=newNode;
+      }
+      temp=temp.next;
+     }
+     return top2;
   }
-
-  return reversedString;
-}
-
-void main() {
-  String input = 'Nandhu';
-  print('Original string: $input');
-  
-  String reversed = reverseStringWithStack(input);
-  print('Reversed string: $reversed');
 }
