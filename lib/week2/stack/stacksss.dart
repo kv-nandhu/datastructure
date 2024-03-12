@@ -22,18 +22,18 @@ class LinkedListStack {
       return;
     }
 
-    Node slowPointer = top!;
-    Node fastPointer = top!;
-    Node prevNode = top!;
+    Node? slowPointer = top;
+    Node? fastPointer = top;
+    Node? prevNode = top;
 
-    while (fastPointer.next != null && fastPointer.next!.next != null) {
+    while (fastPointer!.next != null && fastPointer.next!.next != null) {
       fastPointer = fastPointer.next!.next!;
       prevNode = slowPointer;
-      slowPointer = slowPointer.next!;
+      slowPointer = slowPointer!.next!;
     }
 
     // Delete the middle element
-    prevNode.next = slowPointer.next;
+    prevNode!.next = slowPointer!.next;
   }
 
   // Print the elements in the stack

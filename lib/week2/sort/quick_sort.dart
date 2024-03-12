@@ -46,10 +46,7 @@ class quickSort{
     
 }
 void main(){
-
   List<int> arr = [1,4,3,6,4,3,9];
-
   quickSort q =quickSort();
   print(q.quick(arr));
-
 }
