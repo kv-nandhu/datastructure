@@ -32,7 +32,7 @@ class quickSort{
         right--;
       }
     }
-    swap(arr,right,pivot);//swap pivot and right
+    swap(arr,right,pivot);//swap pivot and righta
     sort(arr, str, right-1);//sort the left partition
     sort(arr, right+1, end);//sort the right partition 
     

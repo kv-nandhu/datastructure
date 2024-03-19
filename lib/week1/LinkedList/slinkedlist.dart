@@ -196,13 +196,16 @@ void main() {
   list.addNode(30);
   list.addNode(20);
   list.addNode(50);
-  // list.delete(50);
+  //  list.display();
+  list.delete(50);
+  //  list.display();
   // list.search(20);
-  // list.reverse();
-  list.insertbefore(10, 25);
+  list.reverse();
+   list.display();
+  // list.insertbefore(10, 25);
   // list.insertafter(20, 40);
   // list.addmiddle(25);
   // list.deleteMiddle();
   // list.removeduplicates();
-  list.display();
+ 
 }
